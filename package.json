@@ -10,9 +10,9 @@
 		"vanilla-js",
 		"vanillajs"
 	],
-	"main": "lib/js/tweento.esm.js",
+	"main": "lib/tweento.esm.js",
 	"module": "lib/tweento.esm.js",
-	"unpkg": "lib/js/tweento.iife.js",
+	"unpkg": "lib/tweento.iife.js",
 	"files": [
 		"lib",
 		"src"
