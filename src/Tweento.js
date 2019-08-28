@@ -41,6 +41,7 @@ export default class Tweento {
 	 */
 	start() {
 		if (this.state.dirty) return;
+		this.state.dirty = true;
 
 		calliffn(this.config.onStart);
 
