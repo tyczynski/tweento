@@ -1,6 +1,6 @@
 {
 	"name": "tweento",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Animation library based on CSS animations.",
 	"keywords": [
 		"animation",
