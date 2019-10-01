@@ -1,6 +1,6 @@
 import calliffn from 'calliffn';
 
-import defaultConfig from './defaultConfig';
+import defaults from './defaults';
 
 /**
  * Tweento class
@@ -15,7 +15,7 @@ export default class Tweento {
 	constructor(element, config) {
 		this.element = element;
 
-		this.config = { ...defaultConfig, ...config };
+		this.config = { ...defaults, ...config };
 		this.state = {
 			transitionStartCount: 0,
 			transitionEndCount: this.config.css.transition
