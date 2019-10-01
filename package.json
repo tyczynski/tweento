@@ -44,12 +44,6 @@
 		"email": "przemyslaw@tyczynski.pl"
 	},
 	"license": "MIT",
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged",
-			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-		}
-	},
 	"lint-staged": {
 		"*.js": [
 			"prettier --config .prettierrc --write",
