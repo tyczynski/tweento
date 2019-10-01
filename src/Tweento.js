@@ -16,11 +16,9 @@ export default class Tweento {
 		this.element = element;
 
 		this.config = { ...defaults, ...config };
+
 		this.state = {
 			transitionStartCount: 0,
-			transitionEndCount: this.config.css.transition
-				? this.config.css.transition.split(',').length
-				: 0,
 			dirty: false,
 		};
 
@@ -40,13 +38,25 @@ export default class Tweento {
 	 * @return {void}
 	 */
 	start() {
+		const { to } = this.config;
+
 		if (this.state.dirty) return;
 		this.state.dirty = true;
 
 		calliffn(this.config.onStart);
 
 		this.bindEvents();
-		this.setStyles();
+
+		if (typeof to === 'object') {
+			this.setStyles();
+		} else {
+			this.element.classList.add(to);
+		}
+
+		const tranitionDuration = getComputedStyle(this.element).getPropertyValue(
+			'transition-duration',
+		);
+		this.state.transitionEndCount = tranitionDuration.split(',').filter(item => item).length;
 	}
 
 	/**
@@ -65,11 +75,11 @@ export default class Tweento {
 	 * @return {void}
 	 */
 	setStyles() {
-		const { css } = this.config;
+		const { to } = this.config;
 
-		for (const key in css) {
-			if (Object.prototype.hasOwnProperty.call(css, key)) {
-				this.element.style[key] = css[key];
+		for (const key in to) {
+			if (Object.prototype.hasOwnProperty.call(to, key)) {
+				this.element.style[key] = to[key];
 			}
 		}
 	}

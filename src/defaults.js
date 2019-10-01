@@ -1,7 +1,7 @@
-/** @const defaults default Tweento configuration object */
+/** @const defaults default configuration object */
 export default {
 	// Options
-	css: {},
+	to: {},
 	paused: false,
 
 	// Events
