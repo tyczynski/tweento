@@ -12,30 +12,30 @@ import tweento from 'tweento';
 const element = document.querySelector('#element');
 
 const twn = tweento(element, {
-	/**
-	 * Class name or object with valid css properties
-	 * e.g 'classname' or { width: '300px', color: red }
-	 *
-	 * @default null
-	 */
-	to: null,
+  /**
+   * Class name or object with valid css properties
+   * e.g 'classname' or { width: '300px', color: red }
+   *
+   * @default null
+   */
+  to: null,
 
-	/**
-	 * Defines whether the transition should be started immediately after calling the function
-	 *
-	 * @default false
-	 */
-	paused: false,
+  /**
+   * Defines whether the transition should be started immediately after calling the function
+   *
+   * @default false
+   */
+  paused: false,
 
-	onStart: () => {
-		console.log('onStart');
-	},
-	onTransitionStart: () => {
-		console.log('onTransitionStart');
-	},
-	onTransitionEnd: () => {
-		console.log('onTransitionEnd');
-	},
+  onStart: () => {
+    console.log('onStart');
+  },
+  onTransitionStart: () => {
+    console.log('onTransitionStart');
+  },
+  onTransitionEnd: () => {
+    console.log('onTransitionEnd');
+  },
 });
 
 // if `paused: false`, the method is not available
