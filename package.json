@@ -1,68 +1,68 @@
 {
-  "name": "tweento",
-  "version": "0.1.1",
-  "description": "Animation library based on CSS animations.",
-  "keywords": [
-    "animation",
-    "transition",
-    "trigger",
-    "vanilla-javascript",
-    "vanilla-js",
-    "vanillajs"
-  ],
-  "main": "lib/tweento.esm.js",
-  "module": "lib/tweento.esm.js",
-  "unpkg": "lib/tweento.iife.js",
-  "files": [
-    "lib",
-    "src"
-  ],
-  "scripts": {
-    "clean": "rimraf lib",
-    "build:esm": "rollup --config scripts/esm.js",
-    "build:iife": "rollup --config scripts/iife.js",
-    "build:js": "yarn build:esm && yarn build:iife",
-    "build": "yarn clean && yarn build:js"
-  },
-  "homepage": "https://github.com/tyczynski/tweento.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tyczynski/tweento.js.git"
-  },
-  "bugs": {
-    "url": "https://github.com/tyczynski/tweento.js/issues"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/tyczynski/tweento.js/blob/master/LICENSE"
-    }
-  ],
-  "author": {
-    "name": "Przemysław Tyczyński",
-    "url": "https://tyczynski.pl",
-    "email": "przemyslaw@tyczynski.pl"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
-    "eslint": "^5.3.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-import": "^2.18.2",
-    "husky": "^3.0.7",
-    "lint-staged": "^8.2.0",
-    "node-sass": "^4.12.0",
-    "prettier": "^1.18.2",
-    "rimraf": "^3.0.0",
-    "rollup": "^1.20.2",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-externals": "^2.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^5.1.1"
-  },
-  "dependencies": {
-    "calliffn": "^1.0.0"
-  }
+	"name": "tweento",
+	"version": "0.2.0",
+	"description": "Animation library based on CSS animations.",
+	"keywords": [
+		"animation",
+		"transition",
+		"trigger",
+		"vanilla-javascript",
+		"vanilla-js",
+		"vanillajs"
+	],
+	"main": "lib/tweento.esm.js",
+	"module": "lib/tweento.esm.js",
+	"unpkg": "lib/tweento.iife.js",
+	"files": [
+		"lib",
+		"src"
+	],
+	"scripts": {
+		"clean": "rimraf lib",
+		"build:esm": "rollup --config scripts/esm.js",
+		"build:iife": "rollup --config scripts/iife.js",
+		"build:js": "yarn build:esm && yarn build:iife",
+		"build": "yarn clean && yarn build:js"
+	},
+	"homepage": "https://github.com/tyczynski/tweento.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/tyczynski/tweento.js.git"
+	},
+	"bugs": {
+		"url": "https://github.com/tyczynski/tweento.js/issues"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "https://github.com/tyczynski/tweento.js/blob/master/LICENSE"
+		}
+	],
+	"author": {
+		"name": "Przemysław Tyczyński",
+		"url": "https://tyczynski.pl",
+		"email": "przemyslaw@tyczynski.pl"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@commitlint/cli": "^8.2.0",
+		"@commitlint/config-conventional": "^8.2.0",
+		"eslint": "^5.3.0",
+		"eslint-config-airbnb-base": "^14.0.0",
+		"eslint-config-prettier": "^4.3.0",
+		"eslint-plugin-import": "^2.18.2",
+		"husky": "^3.0.7",
+		"lint-staged": "^8.2.0",
+		"node-sass": "^4.12.0",
+		"prettier": "^1.18.2",
+		"rimraf": "^3.0.0",
+		"rollup": "^1.20.2",
+		"rollup-plugin-commonjs": "^10.1.0",
+		"rollup-plugin-node-externals": "^2.0.0",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-terser": "^5.1.1"
+	},
+	"dependencies": {
+		"calliffn": "^1.0.0"
+	}
 }
