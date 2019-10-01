@@ -16,16 +16,12 @@ export default class Tweento {
 		this.element = element;
 
 		this.config = { ...defaults, ...config };
-
 		this.state = {
-			transitionStartCount: 0,
 			dirty: false,
 		};
 
 		this.transitionStart = this.transitionStart.bind(this);
 		this.transitionEnd = this.transitionEnd.bind(this);
-
-		this.bindEvents();
 
 		if (!this.config.paused) {
 			this.start();
@@ -38,29 +34,27 @@ export default class Tweento {
 	 * @return {void}
 	 */
 	start() {
-		const { to } = this.config;
-
 		if (this.state.dirty) return;
 		this.state.dirty = true;
 
 		calliffn(this.config.onStart);
 
-		this.bindEvents();
-
-		if (typeof to === 'object') {
+		if (typeof this.config.to === 'object') {
 			this.setStyles();
 		} else {
-			this.element.classList.add(to);
+			this.element.classList.add(this.config.to);
 		}
 
-		const tranitionDuration = getComputedStyle(this.element).getPropertyValue(
-			'transition-duration',
-		);
-		this.state.transitionEndCount = tranitionDuration.split(',').filter(item => item).length;
+		this.state.transitionsCount = getComputedStyle(this.element)
+			.getPropertyValue('transition-duration')
+			.split(',')
+			.filter(item => item).length;
+
+		this.bindEvents();
 	}
 
 	/**
-	 * Bind 'transitionend' and 'transitionstart' event to the element
+	 * Bind `transitionend` and `transitionstart` event to the element
 	 *
 	 * @return {void}
 	 */
@@ -90,13 +84,8 @@ export default class Tweento {
 	 * @return {void}
 	 */
 	transitionStart() {
-		this.state.transitionStartCount += 1;
-
-		if (this.state.transitionStartCount === 1) {
-			this.element.removeEventListener('transitionstart', this.transitionStart);
-
-			calliffn(this.config.onTransitionStart);
-		}
+		this.element.removeEventListener('transitionstart', this.transitionStart);
+		calliffn(this.config.onTransitionStart);
 	}
 
 	/**
@@ -105,11 +94,11 @@ export default class Tweento {
 	 * @return {void}
 	 */
 	transitionEnd() {
-		this.state.transitionEndCount -= 1;
+		this.state.transitionsCount -= 1;
+		const { transitionsCount } = this.state;
 
-		if (this.state.transitionEndCount === 0) {
-			this.element.removeEventListener('transitionend', this.transitionEndCount);
-
+		if (transitionsCount === 0) {
+			this.element.removeEventListener('transitionend', this.transitionEnd);
 			calliffn(this.config.onTransitionEnd);
 		}
 	}
