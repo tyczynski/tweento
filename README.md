@@ -1,4 +1,4 @@
-# tweento.js - WORK IN PROGRESS
+# tweento.js [![npm version](https://badge.fury.io/js/tweento.svg)](https://badge.fury.io/js/tweento)
 
 Animation library based on CSS animations.
 
