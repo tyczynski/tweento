@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+
+	<style>
+		.box {
+			width: 150px;
+			height: 150px;
+			background: red;
+		}
+
+		.box-end {
+			transform: translate(30px, 30px);
+			background: blue;
+			transition: transform 0.3s ease, background 0.15s ease;
+			transition-delay: 0.3s;
+		}
+	</style>
+	<body>
+		<div class="box"></div>
+
+		<script src="../lib/tweento.iife.js"></script>
+		<script>
+			const box = document.querySelector('.box');
+
+			const twn = tweento(box, {
+				to: 'box-end',
+				onStart: () => {
+					console.log('onStart');
+				},
+				onTransitionStart: () => {
+					console.log('onTransitionStart');
+				},
+				onTransitionEnd: () => {
+					console.log('onTransitionEnd');
+				},
+			});
+		</script>
+	</body>
+</html>
