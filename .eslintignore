@@ -1,8 +1,9 @@
 # dependencies
 node_modules/
 
-# lib
+# build
 lib/
+rollup.config.js
 
 # scripts
 scripts/
