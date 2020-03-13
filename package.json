@@ -12,7 +12,8 @@
 	],
 	"main": "lib/tweento.cjs.js",
 	"module": "lib/tweento.esm.js",
-	"browser": "lib/tweento.umd.js",
+  "browser": "lib/tweento.umd.js",
+  "types": "lib/index.d.ts",
 	"files": [
 		"lib",
 		"src"
