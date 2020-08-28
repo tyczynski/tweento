@@ -2,15 +2,10 @@ import calliffn from 'calliffn';
 import { Config, State } from './types';
 import defaults from './defaults';
 
-/**
- * Tweento class
- *
- * @class
- */
 export default class Tweento {
-  element: HTMLElement;
-  config: Config;
-  state: State;
+  private element: HTMLElement;
+  private config: Config;
+  private state: State;
 
   constructor(element: HTMLElement, config: Config) {
     this.element = element;
@@ -32,7 +27,7 @@ export default class Tweento {
   /**
    * Method that starts the transition of the element
    */
-  private start(): void {
+  public start() {
     if (this.state.dirty) return;
     this.state.dirty = true;
 
@@ -49,7 +44,7 @@ export default class Tweento {
     this.state.transitionsCount = getComputedStyle(this.element)
       .getPropertyValue('transition-duration')
       .split(',')
-      .filter(item => item).length;
+      .filter((item) => item).length;
 
     this.bindEvents();
   }
@@ -57,7 +52,7 @@ export default class Tweento {
   /**
    * Bind `transitionend` and `transitionstart` event to the element
    */
-  private bindEvents(): void {
+  private bindEvents() {
     this.element.addEventListener('transitionstart', this.transitionStart);
     this.element.addEventListener('transitionend', this.transitionEnd);
   }
@@ -65,7 +60,7 @@ export default class Tweento {
   /**
    * Set passed inline styles to the element
    */
-  private setStyles(): void {
+  private setStyles() {
     const to = this.config.to as CSSStyleDeclaration;
 
     for (const key in to) {
@@ -78,7 +73,7 @@ export default class Tweento {
   /**
    * Callback for the element 'transitionstart' event
    */
-  private transitionStart(): void {
+  private transitionStart() {
     this.element.removeEventListener('transitionstart', this.transitionStart);
     calliffn(this.config.onTransitionStart);
   }
@@ -86,7 +81,7 @@ export default class Tweento {
   /**
    * Callback for the element 'transitionend' event
    */
-  private transitionEnd(): void {
+  private transitionEnd() {
     this.state.transitionsCount -= 1;
     const { transitionsCount } = this.state;
 
