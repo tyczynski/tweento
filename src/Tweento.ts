@@ -41,7 +41,9 @@ export default class Tweento {
     if (typeof this.config.to === 'object') {
       this.setStyles();
     } else {
-      this.element.classList.add(this.config.to);
+      const method = this.config.to.charAt(0) === '!' ? 'remove' : 'add';
+      const className = method === 'remove' ? this.config.to.substring(1) : this.config.to;
+      this.element.classList[method](className);
     }
 
     this.state.transitionsCount = getComputedStyle(this.element)
